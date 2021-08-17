@@ -1,11 +1,19 @@
 .resetDiv {
-  position: absolute;
+  margin: 15px;
   width: 280px;
   height: 40px;
   left: 600px;
   top: 580px;
   background: #ff7021;
   border-radius: 8px;
+}
+
+.vaastuToolScore{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 125px;
 }
 
 .resetDivText {
@@ -25,9 +33,9 @@
 }
 
 .vaastuDiv {
-  position: absolute;
+
   width: 900px;
-  height: 421px;
+  height: auto;
   left: 300px;
   top: 129px;
 
@@ -50,7 +58,7 @@ h3 {
 }
 
 .backButtonText {
-  color: #FF7021;
+  color: #ff7021;
 }
 
 .overTextDiv {
@@ -73,7 +81,9 @@ h3 {
 }
 
 .scoreDiv {
-  margin: 10px 0px 0px 25px;
+  margin: 30px 45px 0px 25px;
+  display: flex;
+  justify-content: space-between;
   /* width: 127px;
   height: 18px;
   left: 263px;
@@ -93,11 +103,11 @@ h3 {
 }
 
 .icon2 {
-  color: #FF7021;
+  color: #ff7021;
 }
 
 .horizontalRule2 {
-  margin: 10px 0px 0px 25px;
+  margin: 35px 0px 0px 25px;
 
   width: 42rem;
   height: 0px;
@@ -141,7 +151,11 @@ h3 {
   color: #666666;
 }
 
-.roomDetailsOuterDiv {
+.roomDetailsDiv {
+  width: 420px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
 }
 
 .roomDetailsInnerDiv {
@@ -149,11 +163,13 @@ h3 {
 }
 
 .roomDetails {
+  flex-wrap: wrap;
+  display: flex;
   margin: 10px 25px;
   overflow: auto;
   /* position: absolute; */
   width: 250px;
-  height: 150px;
+  width: 840px;
   /* left: 263px;
   top: 426px; */
 
@@ -165,4 +181,44 @@ h3 {
   /* identical to box height */
 
   color: #666666;
+}
+
+.vastuStatus {
+  /* width: 181px;
+  height: 16px;
+  left: 922px;
+  top: 263px; */
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+
+  text-transform: uppercase;
+
+  color: #503796;
+}
+
+.legendSpan {
+  margin-left: 25px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  /* identical to box height, or 145% */
+
+  text-transform: uppercase;
+
+  color: #15b525;
+}
+
+.legendDiv {
+  width: 120px;
+  height: 28px;
+
+  background: #f1fbf2;
+  border-radius: 8px;
 }

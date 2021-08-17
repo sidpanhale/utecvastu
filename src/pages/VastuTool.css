@@ -285,3 +285,20 @@ hr {
 .directionButtonRoomsP{
   margin-bottom: 0px;
 }
+
+.knowMoreModal{
+  position: absolute;
+left: 1231px;
+top: 86.5px;
+cursor: pointer;
+
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 19px;
+/* identical to box height */
+letter-spacing: 0.58px;
+
+color: #FF7021;
+}

@@ -23,7 +23,8 @@ export default function VastuToolScore(props) {
         </div>
 
         <div className="scoreDiv">
-          <h1>{score.overallVastuScore}</h1>
+          <span>{score.overallVastuScore}</span>
+          <span className="vastuStatus">{score.vastuScoreStatus}</span>
         </div>
 
         <div className="horizontalRule2">
@@ -45,9 +46,12 @@ export default function VastuToolScore(props) {
             <div className="roomDetails">
               {score.roomWiseVastuScore.map((item) => {
                 return (
-                  <p style={{ marginBottom: "0.1rem" }} key={uuidv4()}>
-                    {item.room}
-                  </p>
+                  <div className="roomDetailsDiv" key={uuidv4()}>
+                    <span style={{ marginBottom: "0.1rem" }}>{item.room}</span>
+                    <div className="legendDiv">
+                      <span className="legendSpan">{item.legend}</span>
+                    </div>
+                  </div>
                 );
               })}
             </div>

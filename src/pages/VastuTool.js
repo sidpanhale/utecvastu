@@ -7,9 +7,12 @@ import VaastuToolLeftBlock from "./VaastuToolLeftBlock";
 import { useDispatch } from "react-redux";
 // import { submitData } from "../store/index";
 import { transferData } from "../store/index";
+import HelpIcon from "@material-ui/icons/Help";
+import Modal from "../components/Modal";
 
 export default function VastuTool() {
   const [directionRooms, setDirectionRooms] = useState(null);
+  const [modal, setModal] = useState(false);
   const [totalScoreData, setTotalScoreData] = useState({
     selectedRoomsAndDirection: {
       "North West": [],
@@ -106,163 +109,199 @@ export default function VastuTool() {
         history.push("/vastutoolscore");
       });
   };
+  const onClose = () => {
+    setModal(false)
+  };
 
   return (
-    <div className="vastuTool">
-      <div className="vastuToolLeft">
-        <div className="vastuToolLeftHeadingDiv">
-          <p className="vastuToolLeftHeadingP">
-            Select the rooms that are present in each direction of your home by
-            clicking on the relevant boxes on the right.
-          </p>
+    <>
+      {modal && <Modal onClose={onClose} />}
+      <div className="vastuTool">
+        <div className="vastuToolLeft">
+          <div className="vastuToolLeftHeadingDiv">
+            <p className="vastuToolLeftHeadingP">
+              Select the rooms that are present in each direction of your home
+              by clicking on the relevant boxes on the right.
+            </p>
+          </div>
+          {directionRooms && (
+            <VaastuToolLeftBlock
+              directionRooms={directionRooms}
+              addRoomData={addRoomData}
+            />
+          )}
         </div>
-        {directionRooms && (
-          <VaastuToolLeftBlock
-            directionRooms={directionRooms}
-            addRoomData={addRoomData}
-          />
-        )}
-      </div>
 
-      <div className="vastuToolRight">
-        <>
-          <div
-            className="northWestDiv stylesEffect"
-            onClick={() => getDirections("North West")}
-          >
-            <h3>NORTH-WEST</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection["North West"].map(
-                (item) => {
-                  return <p key={uuidv4()} className="directionButtonRoomsP">{item}</p>;
-                }
-              )}
+        <div className="vastuToolRight">
+          <>
+            <span className="knowMoreModal" onClick={() => setModal(true)}>
+              <HelpIcon style={{ fontSize: "small", marginRight: "3px" }} />
+              KNOW MORE
+            </span>
+            <div
+              className="northWestDiv stylesEffect"
+              onClick={() => getDirections("North West")}
+            >
+              <h3>NORTH-WEST</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection["North West"].map(
+                  (item) => {
+                    return (
+                      <p key={uuidv4()} className="directionButtonRoomsP">
+                        {item}
+                      </p>
+                    );
+                  }
+                )}
+              </div>
             </div>
-          </div>
 
-          <div
-            className="northDiv stylesEffect"
-            onClick={() => getDirections("North")}
-          >
-            <h3>NORTH</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection["North"].map((item) => {
-                return (
-                  <p key={uuidv4()} className="directionButtonRoomsP">
-                    {item}
-                  </p>
-                );
-              })}
+            <div
+              className="northDiv stylesEffect"
+              onClick={() => getDirections("North")}
+            >
+              <h3>NORTH</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection["North"].map(
+                  (item) => {
+                    return (
+                      <p key={uuidv4()} className="directionButtonRoomsP">
+                        {item}
+                      </p>
+                    );
+                  }
+                )}
+              </div>
             </div>
-          </div>
 
-          <div
-            className="northEastDiv stylesEffect"
-            onClick={() => getDirections("North East")}
-          >
-            <h3>NORTH-EAST</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection["North East"].map(
-                (item) => {
-                  return <p key={uuidv4()} className="directionButtonRoomsP">{item}</p>;
-                }
-              )}
+            <div
+              className="northEastDiv stylesEffect"
+              onClick={() => getDirections("North East")}
+            >
+              <h3>NORTH-EAST</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection["North East"].map(
+                  (item) => {
+                    return (
+                      <p key={uuidv4()} className="directionButtonRoomsP">
+                        {item}
+                      </p>
+                    );
+                  }
+                )}
+              </div>
             </div>
-          </div>
 
-          <div
-            className="westDiv stylesEffect"
-            onClick={() => getDirections("West")}
-          >
-            <h3>WEST</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection.West.map(
-                (item) => {
-                  return <p key={uuidv4()} className="directionButtonRoomsP">{item}</p>;
-                }
-              )}
+            <div
+              className="westDiv stylesEffect"
+              onClick={() => getDirections("West")}
+            >
+              <h3>WEST</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection.West.map((item) => {
+                  return (
+                    <p key={uuidv4()} className="directionButtonRoomsP">
+                      {item}
+                    </p>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          <div
-            className="centreDiv stylesEffect"
-            onClick={() => getDirections("Centre")}
-          >
-            <h3>CENTRE</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection.Centre.map(
-                (item) => {
-                  return <p key={uuidv4()} className="directionButtonRoomsP">{item}</p>;
-                }
-              )}
+            <div
+              className="centreDiv stylesEffect"
+              onClick={() => getDirections("Centre")}
+            >
+              <h3>CENTRE</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection.Centre.map((item) => {
+                  return (
+                    <p key={uuidv4()} className="directionButtonRoomsP">
+                      {item}
+                    </p>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          <div
-            className="eastDiv stylesEffect"
-            onClick={() => getDirections("East")}
-          >
-            <h3>EAST</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection.East.map(
-                (item) => {
-                  return <p key={uuidv4()} className="directionButtonRoomsP">{item}</p>;
-                }
-              )}
+            <div
+              className="eastDiv stylesEffect"
+              onClick={() => getDirections("East")}
+            >
+              <h3>EAST</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection.East.map((item) => {
+                  return (
+                    <p key={uuidv4()} className="directionButtonRoomsP">
+                      {item}
+                    </p>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          <div
-            className="southWestDiv stylesEffect"
-            onClick={() => getDirections("South West")}
-          >
-            <h3>SOUTH-WEST</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection["South West"].map(
-                (item) => {
-                  return <p key={uuidv4()} className="directionButtonRoomsP">{item}</p>;
-                }
-              )}
+            <div
+              className="southWestDiv stylesEffect"
+              onClick={() => getDirections("South West")}
+            >
+              <h3>SOUTH-WEST</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection["South West"].map(
+                  (item) => {
+                    return (
+                      <p key={uuidv4()} className="directionButtonRoomsP">
+                        {item}
+                      </p>
+                    );
+                  }
+                )}
+              </div>
             </div>
-          </div>
 
-          <div
-            className="southDiv stylesEffect"
-            onClick={() => getDirections("South")}
-          >
-            <h3>SOUTH</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection.South.map(
-                (item) => {
-                  return <p key={uuidv4()} className="directionButtonRoomsP">{item}</p>;
-                }
-              )}
+            <div
+              className="southDiv stylesEffect"
+              onClick={() => getDirections("South")}
+            >
+              <h3>SOUTH</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection.South.map((item) => {
+                  return (
+                    <p key={uuidv4()} className="directionButtonRoomsP">
+                      {item}
+                    </p>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          <div
-            className="southEastDiv stylesEffect"
-            onClick={() => getDirections("South East")}
-          >
-            <h3>SOUTH-EAST</h3>
-            <div className="directionButtonRooms">
-              {totalScoreData.selectedRoomsAndDirection["South East"].map(
-                (item) => {
-                  return <p key={uuidv4()} className="directionButtonRoomsP">{item}</p>;
-                }
-              )}
+            <div
+              className="southEastDiv stylesEffect"
+              onClick={() => getDirections("South East")}
+            >
+              <h3>SOUTH-EAST</h3>
+              <div className="directionButtonRooms">
+                {totalScoreData.selectedRoomsAndDirection["South East"].map(
+                  (item) => {
+                    return (
+                      <p key={uuidv4()} className="directionButtonRoomsP">
+                        {item}
+                      </p>
+                    );
+                  }
+                )}
+              </div>
             </div>
+          </>
+          <div
+            className="calculateScoreDiv stylesEffect"
+            onClick={() => {
+              submitData(totalScoreData);
+            }}
+          >
+            <h3 className="buttonText">Calculate Score</h3>
           </div>
-        </>
-        <div
-          className="calculateScoreDiv stylesEffect"
-          onClick={() => {
-            submitData(totalScoreData);
-          }}
-        >
-          <h3 className="buttonText">Calculate Score</h3>
         </div>
       </div>
-    </div>
+    </>
   );
 }

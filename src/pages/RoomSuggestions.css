@@ -1,0 +1,162 @@
+.heading {
+  display: flex;
+  position: absolute;
+  width: 350px;
+  height: 30px;
+  left: 35px;
+  top: 136px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 30px;
+  /* identical to box height, or 107% */
+
+  color: #333333;
+}
+
+.vastuToolLeftBox {
+  width: 412px;
+  height: auto;
+  top: 206px;
+  left: 28px;
+  background: #ffffff;
+  border-radius: 8px;
+  position: absolute;
+}
+
+.vastuToolLeftBoxHeading {
+  /* position: absolute; */
+  width: 201px;
+  height: 24px;
+  left: 44px;
+  top: 202px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  letter-spacing: 1.16px;
+  text-transform: uppercase;
+
+  color: #666666;
+}
+
+.vastuToolLeftBoxTitle {
+  width: 250px;
+  height: 24px;
+  margin: 15px 0px 0px 25px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 1.16px;
+  text-transform: uppercase;
+  color: #666666;
+}
+
+.direction1 {
+  width: 99px;
+  height: 28px;
+  border-radius: 8px;
+  background: #f1fbf2;
+  border-radius: 8px;
+  margin: 8px 0px 8px 25px;
+  text-align: center;
+}
+
+.directionText1 {
+  /* position: absolute;
+  width: 67px;
+  height: 16px;
+  left: 4.39%;
+  top: calc(50% - 16px / 2 - 134px); */
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #15b525;
+}
+
+.directionText2 {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #ffcd02;
+}
+
+.directionText3 {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #d11e4c;
+}
+
+.RoomSuggestions {
+  width: 468px;
+  /* height: 778.31px; */
+  height: auto;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  background: #f8f8fb;
+}
+
+.directionFlex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.direction2 {
+  width: 99px;
+  height: 28px;
+  border-radius: 8px;
+  background: #fffae6;
+  border-radius: 8px;
+  margin: 8px 0px 8px 25px;
+  text-align: center;
+}
+
+.direction3 {
+  width: 99px;
+  height: 28px;
+  border-radius: 8px;
+  background: #fae8ed;
+  border-radius: 8px;
+  margin: 8px 0px 8px 25px;
+  text-align: center;
+}
+
+.aboutDiv {
+  /* position: absolute; */
+  width: 350px;
+  height: 140px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666666;
+  margin: 15px 25px;
+}
+
+
+.icon{
+    margin-right: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,66 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import "./VastuToolScore.css";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+
+export default function VastuToolScore(props) {
+  const score = useSelector((state) => state.score.value);
+
+  return (
+    <div className="vaastuToolScore">
+      <div className="vaastuDiv">
+        <div className="backButton">
+          <Link to="/vastutool" style={{ textDecoration: "none" }}>
+            <ArrowBackIcon className="icon2" />
+            <span className="backButtonText">Go Back</span>
+          </Link>
+        </div>
+
+        <div className="OverTextDiv">
+          <p className="OverTextP">OVERALL VAASTU SCORE</p>
+        </div>
+
+        <div className="scoreDiv">
+          <h1>{score.overallVastuScore}</h1>
+        </div>
+
+        <div className="horizontalRule2">
+          <hr />
+        </div>
+
+        <div className="title2">
+          <p>ROOM-WISE BREAKUP OF VAASTU SCORE</p>
+        </div>
+
+        {/* <div className="title3">
+          <h3>
+            Tap on any room name to know more about the details of the room.
+          </h3>
+        </div> */}
+
+        <div className="roomDetailsOuterDiv">
+          <div className="roomDetailsInnerDiv">
+            <div className="roomDetails">
+              {score.roomWiseVastuScore.map((item) => {
+                return (
+                  <p style={{ marginBottom: "0.1rem" }} key={uuidv4()}>
+                    {item.room}
+                  </p>
+                );
+              })}
+            </div>
+            <div>
+              {" "}
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="resetDiv">
+        <h3 className="resetDivText">RESET VALUE SCORE</h3>
+      </div>
+    </div>
+  );
+}

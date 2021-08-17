@@ -1,0 +1,162 @@
+.toolSelectHeadingDiv {
+}
+
+.solutionsNew {
+  background-color: #e5e5e5;
+}
+
+.toolSelectHeadingP {
+  position: absolute;
+  width: 360px;
+  height: 24px;
+  left: 99px;
+  top: 129px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #666666;
+}
+
+.image {
+  width: 172.06px;
+  height: 126.29px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.cardLeft {
+  position: absolute;
+  display: flex;
+  width: 570px;
+  height: 144px;
+  left: 98px;
+  top: 173px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.cardRight {
+  display: flex;
+  position: absolute;
+  width: 570px;
+  height: 144px;
+  left: 698px;
+  top: 173px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.cardHeadingLeft {
+  width: 123px;
+  height: 24px;
+  left: 256px;
+  top: 193px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+
+  color: #333333;
+}
+
+.cardHeadingRight {
+  width: 175px;
+  height: 24px;
+  left: 856px;
+  top: 193px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+
+  color: #333333;
+}
+
+.cardTimeLeft {
+  width: 128px;
+  height: 20px;
+  left: 256px;
+  top: 225px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+
+  color: #999999;
+}
+
+.cardTimeRight {
+  width: 135px;
+  height: 20px;
+  left: 856px;
+  top: 225px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+
+  color: #999999;
+}
+
+.cardLeftTexts {
+  margin-top: 10px;
+}
+.cardRightTexts {
+  margin-top: 10px;
+}
+
+.cardDescriptionLeft {
+  width: 392px;
+  height: 40px;
+  left: 256px;
+  top: 257px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* or 143% */
+
+  color: #666666;
+}
+
+.cardDescriptionRight {
+  width: 392px;
+  height: 40px;
+  left: 856px;
+  top: 257px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* or 143% */
+
+  color: #666666;
+}

@@ -1,0 +1,287 @@
+.vastuToolLeft {
+  position: absolute;
+  width: 468px;
+  height: 800px;
+  left: 0px;
+  top: 0px;
+  background: #f8f8fb;
+}
+
+.vastuToolLeftHeadingDiv {
+  position: absolute;
+
+  width: 412px;
+  height: 40px;
+  left: 28px;
+  top: 136px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666666;
+}
+
+.vastuToolLeftBox {
+  width: 412px;
+  height: auto;
+  top: 206px;
+  left: 28px;
+  background: #ffffff;
+  border-radius: 8px;
+  position: absolute;
+}
+
+.northWestDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 672px;
+  top: 103px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.northDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 842px;
+  top: 103px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.northEastDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 1012px;
+  top: 103px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.westDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 672px;
+  top: 295px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.centreDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 842px;
+  top: 295px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.eastDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 1012px;
+  top: 295px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.southWestDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 672px;
+  top: 487px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.southDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 842px;
+  top: 487px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.southEastDiv {
+  position: absolute;
+  width: 150px;
+  height: 172px;
+  left: 1012px;
+  top: 487px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(255, 112, 33, 0.3);
+  border-radius: 8px;
+}
+
+.calculateScoreDiv {
+  position: absolute;
+  width: 280px;
+  height: 40px;
+  left: 777px;
+  top: 688px;
+  border-radius: 8px;
+  background: #ff7021;
+}
+
+.colorGrey {
+  background: #cccccc;
+}
+
+.colorOrange {
+  background: #ff7021;
+}
+
+h3 {
+  height: 24px;
+  padding-top: 25px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  text-align: center;
+  letter-spacing: 1.16px;
+  text-transform: uppercase;
+
+  color: #666666;
+}
+
+.buttonText {
+  /* width: 127px; */
+  height: 16px;
+  /* left: 854px;
+  top: 700px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px; */
+  line-height: 16px;
+  /* identical to box height, or 114%
+
+  text-align: center;
+  text-transform: uppercase; */
+
+  color: #ffffff;
+  padding-top: 13px;
+}
+
+h2 {
+  padding: 20px 0px 0px 20px;
+  /* width: 380px;
+height: 30px;
+left: 48px;
+top: 226px; */
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 30px;
+  color: #333333;
+}
+
+.leftBoxText {
+  margin-left: 20px;
+  /* position: absolute;
+width: 257px;
+height: 20px;
+left: 48px;
+top: 276px; */
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+
+  color: #666666;
+}
+
+.horizontalRule {
+  position: absolute;
+  width: 350px;
+  height: 0px;
+  left: 20px;
+  top: 75px;
+  /* border: 1px solid #e2e2e2; */
+}
+
+hr {
+  color: #e2e2e2;
+  opacity: 1.25;
+}
+
+.checkBoxDiv {
+  width: 192px;
+  height: 40px;
+  color: #333333;
+}
+
+.checkBoxesDiv {
+  margin: 40px 0px 10px 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkboxInput {
+  margin-right: 10px;
+}
+
+.checkBoxText {
+  font-size: 14px;
+}
+
+.stylesEffect {
+  cursor: pointer;
+}
+
+.directionButtonRooms {
+  overflow: auto;
+  width: 149px;
+  height: 80px;
+  margin-top: 25px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+
+  color: #666666;
+}
+
+.directionButtonRoomsP{
+  margin-bottom: 0px;
+}

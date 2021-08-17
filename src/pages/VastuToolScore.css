@@ -1,0 +1,168 @@
+.resetDiv {
+  position: absolute;
+  width: 280px;
+  height: 40px;
+  left: 600px;
+  top: 580px;
+  background: #ff7021;
+  border-radius: 8px;
+}
+
+.resetDivText {
+  /* position: absolute;
+  width: 147px;
+  height: 16px;
+  left: 610px;
+  top: 592px; */
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  /* text-align: center; */
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.vaastuDiv {
+  position: absolute;
+  width: 900px;
+  height: 421px;
+  left: 300px;
+  top: 129px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h3 {
+  padding-top: 13px;
+}
+
+.backButton {
+  width: 150px;
+  height: 20px;
+  /* left: 263px; */
+  /* top: 159px; */
+  /* margin-left: 30px; */
+  margin: 20px 0px 0px 20px;
+}
+
+.backButtonText {
+  color: #FF7021;
+}
+
+.overTextDiv {
+  /* width: 252px;
+  height: 24px; */
+  /* left: 263px;
+  top: 197px; */
+  margin: 30px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #666666;
+}
+.OverTextP {
+  margin: 25px 0px 0px 25px;
+}
+
+.scoreDiv {
+  margin: 10px 0px 0px 25px;
+  /* width: 127px;
+  height: 18px;
+  left: 263px;
+  top: 251px; */
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 18px;
+  /* identical to box height, or 37% */
+  /* 
+  display: flex;
+  align-items: center; */
+
+  color: #d11e4c;
+}
+
+.icon2 {
+  color: #FF7021;
+}
+
+.horizontalRule2 {
+  margin: 10px 0px 0px 25px;
+
+  width: 42rem;
+  height: 0px;
+  /* left: 20px;
+  top: 75px; */
+  /* border: 1px solid #e2e2e2; */
+}
+
+.title2 {
+  /* position: absolute;
+  width: 421px;
+  height: 24px;
+  left: 263px;
+  top: 339px; */
+  margin: 25px 25px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #666666;
+}
+
+.title3 {
+  position: absolute;
+  width: 446px;
+  height: 20px;
+  left: 263px;
+  top: 373px;
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666666;
+}
+
+.roomDetailsOuterDiv {
+}
+
+.roomDetailsInnerDiv {
+  display: flex;
+}
+
+.roomDetails {
+  margin: 10px 25px;
+  overflow: auto;
+  /* position: absolute; */
+  width: 250px;
+  height: 150px;
+  /* left: 263px;
+  top: 426px; */
+
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  /* identical to box height */
+
+  color: #666666;
+}

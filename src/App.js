@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Redirect, Route, Switch } from "react-router-dom";
+import HeaderNew from "./components/HeaderNew";
+import SolutionsNew from "./pages/SolutionsNew";
+import CompassTool from "./pages/CompassTool";
+import VastuTool from "./pages/VastuTool";
+import VastuToolScore from "./pages/VastuToolScore";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <HeaderNew />
+      <Switch>
+
+        <Route path="/" exact>
+          <Redirect to="/SolutionsNew" />
+        </Route>
+
+        <Route path="/SolutionsNew" exact>
+          <SolutionsNew />
+        </Route>
+
+        {/* <Route path="/quotes/:quoteId">
+            <QuoteDetail />
+          </Route> */}
+
+        <Route path="/compasstool">
+          <CompassTool />
+        </Route>
+
+        <Route path="/vastutool">
+          <VastuTool />
+        </Route>
+
+        <Route path="/vastutoolscore">
+          <VastuToolScore />
+        </Route>
+
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </Switch>
+    </>
   );
 }
 

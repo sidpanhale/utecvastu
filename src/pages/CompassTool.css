@@ -1,0 +1,74 @@
+.compassTool {
+  width: 468px;
+  /* height: 778.31px; */
+  height: auto;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  background: #f8f8fb;
+}
+
+.compassToolRight {
+  /* margin: 85px 0px 0px 500px; */
+  padding: 85px 0px 0px 140px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.cardComponents {
+  height: 500px;
+  width: 468px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 197px;
+  overflow: auto;
+max-height: 100vh;
+}
+
+.cardText {
+  width: 130px;
+  height: 18px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  margin-left: 25px;
+  color: #333333;
+}
+
+.card {
+  justify-content: center;
+  width: 160px;
+  height: 74px;
+  /* top: 196px; */
+  background: #ffffff;
+  border: 1px solid #e2e2e6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin: 15px 20px 5px 5px;
+  display: flex;
+  cursor: pointer;
+}
+
+
+/* .card:nth-child(even) {
+  border-color: #333 !important;
+} */
+
+.compassToolLeftHeading {
+  position: absolute;
+  width: 412px;
+  height: 40px;
+  left: 28px;
+  top: 136px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* or 143% */
+  color: #666666;
+}

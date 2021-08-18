@@ -212,13 +212,26 @@ h3 {
 
   text-transform: uppercase;
 
-  color: #15b525;
 }
 
 .legendDiv {
   width: 120px;
   height: 28px;
-
-  background: #f1fbf2;
   border-radius: 8px;
 }
+
+.favColor{
+  background: #f1fbf2;
+  color: #15b525;
+}
+
+.neutralColor{
+  color: #FFCD02;
+  background: #FFFAE6;
+}
+
+.avoidColor{
+  color: #D11E4C;
+  background: #FAE8ED;
+}
+

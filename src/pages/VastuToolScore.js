@@ -35,12 +35,6 @@ export default function VastuToolScore(props) {
           <p>ROOM-WISE BREAKUP OF VAASTU SCORE</p>
         </div>
 
-        {/* <div className="title3">
-          <h3>
-            Tap on any room name to know more about the details of the room.
-          </h3>
-        </div> */}
-
         <div className="roomDetailsOuterDiv">
           <div className="roomDetailsInnerDiv">
             <div className="roomDetails">
@@ -48,7 +42,15 @@ export default function VastuToolScore(props) {
                 return (
                   <div className="roomDetailsDiv" key={uuidv4()}>
                     <span style={{ marginBottom: "0.1rem" }}>{item.room}</span>
-                    <div className="legendDiv">
+                    <div
+                      className={`legendDiv ${
+                        item.legend === "Favorable"
+                          ? "favColor"
+                          : item.legend === "Neutral"
+                          ? "neutralColor"
+                          : "avoidColor"
+                      }`}
+                    >
                       <span className="legendSpan">{item.legend}</span>
                     </div>
                   </div>
@@ -63,7 +65,9 @@ export default function VastuToolScore(props) {
         </div>
       </div>
       <div className="resetDiv">
-        <h3 className="resetDivText">RESET VALUE SCORE</h3>
+        <Link to="/vastutool" style={{ textDecoration: "none" }}>
+          <h3 className="resetDivText">RESET VALUE SCORE</h3>
+        </Link>
       </div>
     </div>
   );

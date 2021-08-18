@@ -1,0 +1,69 @@
+.DirectionModalBox {
+  position: fixed;
+  top: 20vh;
+  left: calc(50% - 15rem);
+  width: 570px;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  z-index: 1050;
+  border-radius: 8px;
+}
+
+.DirectionBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+}
+
+.DirectionModalDetailsTitleText {
+  margin: 20px 0px 0px 20px;
+  width: 260px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666666;
+}
+
+.listElementsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+  justify-content: space-between;
+}
+
+.DirectionModalHeading{
+  display: flex;
+  justify-content: space-between;
+}
+
+.DirectionModalHeadingText{
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 30px;
+  margin: 20px;
+}
+
+.DirectionModalHeadingIcon{
+  margin: 20px 40px;
+  cursor: pointer;
+}
+
+.DirectionModalDetailsTitle{
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #503796;
+  margin: 10px 0px 8px 20px;
+}

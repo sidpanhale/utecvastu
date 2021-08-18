@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import DirectionModal from "../components/DirectionModal";
 import "./VastuTool.css";
 
 export default function VaastuToolLeftBlock({ directionRooms, addRoomData }) {
+  const [isdirectionModal, setIsDirectionModal] = useState(false);
+  const directionForModal = directionRooms[0].direction;
+
+  const closeModal = () => {
+    setIsDirectionModal(false)
+  }
   return (
+    <>
+  {isdirectionModal && <DirectionModal directionForModal={directionForModal} closeModal={closeModal} />}
     <div className="vastuToolLeftBox">
       <h2>{directionRooms[0].direction}</h2>
-      <p className="leftBoxText">
-        Want to know more about <span>{directionRooms[0].direction}</span>
-      </p>
+      <div className="leftBoxTextDiv">
+      <span className="leftBoxText">
+        Want to know more about <span>{directionRooms[0].direction}?</span>
+      </span>
+      <span className="readNowSpan" onClick={() => setIsDirectionModal(true)}>READ NOW</span>
+      </div>
+
       <div className="horizontalRule">
         <hr />
       </div>
@@ -28,5 +41,6 @@ export default function VaastuToolLeftBlock({ directionRooms, addRoomData }) {
         })}
       </div>
     </div>
+    </>
   );
 }

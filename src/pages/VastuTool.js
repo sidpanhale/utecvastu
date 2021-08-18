@@ -166,7 +166,7 @@ export default function VastuTool() {
               <h3>NORTH-WEST</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection["North West"].length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection["North West"].map(
                       (item) => {
                         return (
@@ -186,7 +186,7 @@ export default function VastuTool() {
               <h3>NORTH</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection["North"].length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection["North"].map(
                       (item) => {
                         return (
@@ -206,7 +206,7 @@ export default function VastuTool() {
               <h3>NORTH-EAST</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection["North East"].length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection["North East"].map(
                       (item) => {
                         return (
@@ -226,7 +226,7 @@ export default function VastuTool() {
               <h3>WEST</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection.West.length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection.West.map(
                       (item) => {
                         return (
@@ -246,7 +246,7 @@ export default function VastuTool() {
               <h3>CENTRE</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection.Centre.length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection.Centre.map(
                       (item) => {
                         return (
@@ -266,7 +266,7 @@ export default function VastuTool() {
               <h3>EAST</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection.East.length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection.East.map(
                       (item) => {
                         return (
@@ -286,7 +286,7 @@ export default function VastuTool() {
               <h3>SOUTH-WEST</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection["South West"].length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection["South West"].map(
                       (item) => {
                         return (
@@ -306,7 +306,7 @@ export default function VastuTool() {
               <h3>SOUTH</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection.South.length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection.South.map(
                       (item) => {
                         return (
@@ -326,7 +326,7 @@ export default function VastuTool() {
               <h3>SOUTH-EAST</h3>
               <div className="directionButtonRooms">
                 {!totalScoreData.selectedRoomsAndDirection["South East"].length
-                  ? "No rooms selected"
+                  ? <span>No rooms<br/> selected</span>
                   : totalScoreData.selectedRoomsAndDirection["South East"].map(
                       (item) => {
                         return (

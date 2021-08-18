@@ -302,3 +302,27 @@ letter-spacing: 0.58px;
 
 color: #FF7021;
 }
+
+.readNowSpan{
+
+width: 115px;
+/* height: 19px;
+left: 339px;
+top: 276px; */
+cursor: pointer;
+font-family: Noto Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 19px;
+/* identical to box height */
+
+letter-spacing: 0.58px;
+
+color: #FF7021;
+}
+
+.leftBoxTextDiv{
+  display: flex;
+  justify-content: space-between;
+}

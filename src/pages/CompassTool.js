@@ -51,20 +51,24 @@ export default function CompassTool() {
       })
       .then((dataWithName) => {
         setSelectedRoomSuggestions(dataWithName);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.log(error.message);
       });
   };
 
-  const backButtonHandler =() =>{
-    setSelectedRoomSuggestions(null)
-  }
+  const backButtonHandler = () => {
+    setSelectedRoomSuggestions(null);
+  };
 
   return (
     <div className="compassTool">
       <div className="compassToolLeft">
         {selectedRoomSuggestions ? (
-          <RoomSuggestions roomsData={selectedRoomSuggestions} backButton={backButtonHandler}/>
+          <RoomSuggestions
+            roomsData={selectedRoomSuggestions}
+            backButton={backButtonHandler}
+          />
         ) : (
           <>
             <p className="compassToolLeftHeading">

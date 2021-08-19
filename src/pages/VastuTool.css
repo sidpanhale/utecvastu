@@ -140,15 +140,6 @@
   border-radius: 8px;
 }
 
-.calculateScoreDiv {
-  position: absolute;
-  width: 280px;
-  height: 40px;
-  left: 777px;
-  top: 688px;
-  border-radius: 8px;
-  background: #ff7021;
-}
 
 .colorGrey {
   background: #cccccc;
@@ -325,4 +316,32 @@ color: #FF7021;
 .leftBoxTextDiv{
   display: flex;
   justify-content: space-between;
+}
+
+.vastuToolButton{
+  position: absolute;
+  width: 210px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+}
+
+.vastuToolButtonDisabled{
+  left: 816px;
+  top: 688px;
+  background: rgb(165, 164, 164);
+}
+
+.vastuToolButtonLeft{
+  cursor: pointer;
+  left: 690px;
+  top: 688px;
+  background: #FF7021
+}
+
+.vastuToolButtonRight{
+  cursor: pointer;
+  left: 930px;
+  top: 688px;
+  background: #FF7021
 }

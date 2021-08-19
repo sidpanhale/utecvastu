@@ -7,18 +7,25 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import scoreReducer from './store/index';
+import scoreReducer from "./store/index";
+
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 
 const store = configureStore({
   reducer: {
-    score : scoreReducer
+    score: scoreReducer,
   },
 });
+
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </BrowserRouter>,
   document.getElementById("root")

@@ -7,9 +7,9 @@ import RoomSuggestions from "./RoomSuggestions";
 
 export default function CompassTool() {
   const [roomData, setRoomData] = useState([]);
-
   const [selectedRoomSuggestions, setSelectedRoomSuggestions] = useState(null);
 
+  //Loads the rooms available in Database
   useEffect(() => {
     Axios.get(
       "https://luayn58dm9.execute-api.ap-south-1.amazonaws.com/stage/vastu/getRoomList"
@@ -32,6 +32,7 @@ export default function CompassTool() {
       });
   }, []);
 
+  //fetches data of selected room from database
   const selectedRoomDetailsHandler = (bodyText) => {
     fetch(
       "https://luayn58dm9.execute-api.ap-south-1.amazonaws.com/stage/vastu/getRoomDetails",

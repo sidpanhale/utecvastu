@@ -18,6 +18,7 @@ const initialStateValue2 = {
   },
 };
 
+
 export const scoreSlice = createSlice({
   name: "score",
   initialState: { value: initialStateValue2, value2: scoreResult },
@@ -60,11 +61,11 @@ export const { transferData, addData, clearData } = scoreSlice.actions;
 
 // export default scoreSlice.reducer;
 
-const rootReducer = scoreSlice.reducer
+const rootReducer = scoreSlice.reducer;
 
 const persistConfig = {
-  key : 'root',
+  key: "root",
   storage,
-}
+};
 
-export default persistReducer(persistConfig,rootReducer)
+export default persistReducer(persistConfig, rootReducer);

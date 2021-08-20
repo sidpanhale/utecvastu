@@ -3,11 +3,14 @@ import "./DirectionModal.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { v4 as uuidv4 } from "uuid";
 
+//Vastu Tool Direction Modal
 const DirectionModal = React.memo((props) => {
   const [directionStatus, setDirectionStatus] = useState();
 
+  //Selected Direction from props is stored
   const direction = props.directionForModal;
 
+  //Data is fetched of selected direction
   const fetchData = (direction) => {
     fetch(
       "https://luayn58dm9.execute-api.ap-south-1.amazonaws.com/stage/vastu/getDirectionDetails",

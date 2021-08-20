@@ -7,9 +7,10 @@ import { v4 as uuidv4 } from "uuid";
 import VastuToolScoreRoom from "./VastuToolScoreRoom";
 import { clearData } from "../store/index";
 
+//Vastu Result Score page
 export default function VastuToolScore(props) {
+  
   const score = useSelector((state) => state.score.value2);
-  console.log(score)
   const dispatch = useDispatch();
   const [isRoomSelected, setIsRoomSelected] = useState(false);
   const [roomTitle, setRoomTitle] = useState("");

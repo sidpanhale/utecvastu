@@ -3,6 +3,7 @@ import "./RoomSuggestions.css";
 import { v4 as uuidv4 } from "uuid";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
+//This component provides details of selected rooms from CompassTool component
 export default function RoomSuggestions({ roomsData, backButton }) {
   return (
     <div className="RoomSuggestions">

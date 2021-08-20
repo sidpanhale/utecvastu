@@ -3,18 +3,18 @@ import DirectionModal from "../components/DirectionModal";
 import "./VastuTool.css";
 import { addData } from "../store/index";
 import { useDispatch, useSelector } from "react-redux";
-// import { useSelector } from "react-redux";
 
+//This component shows rooms of selected direction
 export default function VaastuToolLeftBlock({ directionRooms }) {
   const [isdirectionModal, setIsDirectionModal] = useState(false);
   const directionForModal = directionRooms[0].direction;
   const dispatch = useDispatch();
   const data = useSelector((state) => state.score.value);
-  // const score1 = useSelector((state) => state.score.value);
 
   const closeModal = () => {
     setIsDirectionModal(false);
   };
+
   return (
     <>
       {isdirectionModal && (
@@ -55,7 +55,6 @@ export default function VaastuToolLeftBlock({ directionRooms }) {
                       ].includes(room.roomName)
                     }
                     onChange={(e) => {
-                      // addRoomData(e, room.roomName, room.direction);
                       dispatch(
                         addData({
                           e: e.target.checked,

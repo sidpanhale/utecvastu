@@ -21,10 +21,6 @@ function App() {
           <SolutionsNew />
         </Route>
 
-        {/* <Route path="/quotes/:quoteId">
-            <QuoteDetail />
-          </Route> */}
-
         <Route path="/compasstool">
           <CompassTool />
         </Route>

@@ -9,13 +9,28 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import scoreReducer from "./store/index";
 
-import { persistStore } from "redux-persist";
+//Redux-persist fetches some classes which are considered as non-serializable by redux toolkit, hence we import them and pass it as a middleware to ignore.
+import {
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 
 const store = configureStore({
   reducer: {
     score: scoreReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 const persistor = persistStore(store);

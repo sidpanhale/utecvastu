@@ -4,6 +4,8 @@ import "./SolutionsNew.css";
 import Solutions1pic from "../images/solutions1pic.png";
 import Solutions2pic from "../images/solutions2pic.png";
 
+
+//Initial Page
 export default function SolutionsNew() {
   return (
     <div className="solutionsNew">

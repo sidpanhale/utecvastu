@@ -8,7 +8,6 @@ export default function VastuToolScoreRoom({
   closeVastuToolScoreRoom,
 }) {
   const [roomDetail, setRoomDetail] = useState();
-  console.log(roomDetail);
 
   const fetchRoomData = (bodyText) => {
     fetch(

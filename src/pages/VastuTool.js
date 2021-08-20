@@ -5,32 +5,18 @@ import { v4 as uuidv4 } from "uuid";
 import VaastuToolLeftBlock from "./VaastuToolLeftBlock";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-// import { submitData } from "../store/index";
 import { transferData, clearData } from "../store/index";
 import HelpIcon from "@material-ui/icons/Help";
 import Modal from "../components/Modal";
 
 export default function VastuTool() {
-  const [directionRooms, setDirectionRooms] = useState(null);
+  const [directionRooms, setDirectionRooms] = useState();
   const [modal, setModal] = useState(false);
   const data = useSelector((state) => state.score.value);
-  // const [totalScoreData, setTotalScoreData] = useState({
-  //   selectedRoomsAndDirection: {
-  //     "North West": [],
-  //     North: [],
-  //     "North East": [],
-  //     West: [],
-  //     Centre: [],
-  //     East: [],
-  //     "South West": [],
-  //     South: [],
-  //     "South East": [],
-  //   },
-  // });
-  // console.log(totalScoreData);
   const dispatch = useDispatch();
   const history = useHistory();
 
+  //fetches all the rooms from database and adds id, direction-name to it
   const getRooms = (bodyText) => {
     fetch(
       "https://luayn58dm9.execute-api.ap-south-1.amazonaws.com/stage/vastu/getRoomList"
@@ -39,15 +25,14 @@ export default function VastuTool() {
       .then((responseData) => {
         return responseData.payload.data.roomList;
       })
-      .then((data) => {
-        const dataWithId = data.map((data) => {
+      .then((data1) => {
+        const dataWithId = data1.map((eachData) => {
           return {
             direction: bodyText,
-            roomName: data,
+            roomName: eachData,
             id: uuidv4(),
           };
         });
-        // console.log(dataWithId);
         setDirectionRooms(dataWithId);
       })
       .catch((error) => {
@@ -55,34 +40,7 @@ export default function VastuTool() {
       });
   };
 
-  // const addRoomData = (e, roomName, direction) => {
-  //   if (e.target.checked) {
-  //     for (let key in totalScoreData.selectedRoomsAndDirection) {
-  //       if (key === direction) {
-  //         setTotalScoreData((prevState) => ({
-  //           ...prevState,
-  //           key: totalScoreData.selectedRoomsAndDirection[key].push(roomName),
-  //         }));
-  //       }
-  //     }
-  //   } else {
-  //     for (let key in totalScoreData.selectedRoomsAndDirection) {
-  //       if (key === direction) {
-  //         const indexValue =
-  //           totalScoreData.selectedRoomsAndDirection[key].indexOf(roomName);
-
-  //         setTotalScoreData((prevState) => ({
-  //           ...prevState,
-  //           key: totalScoreData.selectedRoomsAndDirection[key].splice(
-  //             indexValue,
-  //             1
-  //           ),
-  //         }));
-  //       }
-  //     }
-  //   }
-  // };
-
+  //fetches the score of sent data
   const submitData = (data) => {
     fetch(
       "https://luayn58dm9.execute-api.ap-south-1.amazonaws.com/stage/vastu/getVastuScore",
@@ -106,10 +64,12 @@ export default function VastuTool() {
         console.log(error);
       });
   };
+
   const onClose = () => {
     setModal(false);
   };
 
+  //checks if rooms are present in an array of directions
   const roomsPresent = () => {
     for (let key in data.selectedRoomsAndDirection) {
       if (data.selectedRoomsAndDirection[key].length > 0) {
@@ -119,15 +79,15 @@ export default function VastuTool() {
   };
 
   const directionArray = [
-    "NORTH-WEST",
-    "NORTH",
-    "NORTH-EAST",
-    "WEST",
-    "CENTRE",
-    "EAST",
-    "SOUTH-WEST",
-    "SOUTH",
-    "SOUTH-EAST",
+    "North West",
+    "North",
+    "North East",
+    "West",
+    "Centre",
+    "East",
+    "South West",
+    "South",
+    "South East",
   ];
 
   return (
@@ -152,346 +112,55 @@ export default function VastuTool() {
               <HelpIcon style={{ fontSize: "small", marginRight: "3px" }} />
               KNOW MORE
             </span>
-            <>
-              {/* {data &&
-                directionArray.map((eachDirection) => {
-                  return (
-                    <div
-                      key={uuidv4()}
-                      className="northWestDiv stylesEffect"
-                      onClick={() => getRooms(eachDirection)}
-                    >
-                      <h3>{eachDirection}</h3>
-                      <div className="directionButtonRooms">
-                        {!data.selectedRoomsAndDirection[eachDirection]
-                          .length ? (
-                          <span>
-                            No rooms
-                            <br /> selected
-                          </span>
-                        ) : (
-                          <>
-                            {data.selectedRoomsAndDirection[eachDirection]
-                              .slice(0, 3)
-                              .map((item) => {
-                                return (
-                                  <p
-                                    key={uuidv4()}
-                                    className="directionButtonRoomsP"
-                                  >
-                                    {item}
-                                  </p>
-                                );
-                              })}
-                            {data.selectedRoomsAndDirection[eachDirection]
-                              .length > 3 &&
-                              `+
+
+            {/* Mapping all the direction Blocks */}
+            <div className="vastuToolRightDiv">
+              {directionArray.map((eachDirection) => {
+                return (
+                  <div
+                    key={uuidv4()}
+                    className="directionBlock stylesEffect"
+                    onClick={() => getRooms(eachDirection)}
+                  >
+                    <h3>{eachDirection}</h3>
+                    <div className="directionButtonRooms">
+                      {!data.selectedRoomsAndDirection[eachDirection].length ? (
+                        <span>
+                          No rooms
+                          <br /> selected
+                        </span>
+                      ) : (
+                        <>
+                          {data.selectedRoomsAndDirection[eachDirection]
+                            .slice(0, 3)
+                            .map((item) => {
+                              return (
+                                <p
+                                  key={uuidv4()}
+                                  className="directionButtonRoomsP"
+                                >
+                                  {item}
+                                </p>
+                              );
+                            })}
+                          {data.selectedRoomsAndDirection[eachDirection]
+                            .length > 3 &&
+                            `+
                   ${
                     data.selectedRoomsAndDirection[eachDirection].slice(3)
                       .length
                   }
                   more`}
-                          </>
-                        )}
-                      </div>
+                        </>
+                      )}
                     </div>
-                  );
-                })} */}
-            </>
-            <>
-              <div
-                className="northWestDiv stylesEffect"
-                onClick={() => getRooms("North West")}
-              >
-                <h3>NORTH-WEST</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection["North West"].length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection["North West"]
-                        .slice(0, 3)
-                        .map((item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        })}
-                      {data.selectedRoomsAndDirection["North West"].length >
-                        3 &&
-                        `+
-                  ${
-                    data.selectedRoomsAndDirection["North West"].slice(3).length
-                  }
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className="northDiv stylesEffect"
-                onClick={() => getRooms("North")}
-              >
-                <h3>NORTH</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection["North"].length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection["North"]
-                        .slice(0, 3)
-                        .map((item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        })}
-                      {data.selectedRoomsAndDirection["North"].length > 3 &&
-                        `+
-                  ${data.selectedRoomsAndDirection["North"].slice(3).length}
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className="northEastDiv stylesEffect"
-                onClick={() => getRooms("North East")}
-              >
-                <h3>NORTH-EAST</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection["North East"].length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection["North East"]
-                        .slice(0, 3)
-                        .map((item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        })}
-                      {data.selectedRoomsAndDirection["North East"].length >
-                        3 &&
-                        `+
-                  ${
-                    data.selectedRoomsAndDirection["North East"].slice(3).length
-                  }
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className="westDiv stylesEffect"
-                onClick={() => getRooms("West")}
-              >
-                <h3>WEST</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection.West.length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection.West.slice(0, 3).map(
-                        (item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        }
-                      )}
-                      {data.selectedRoomsAndDirection.West.length > 3 &&
-                        `+
-                  ${data.selectedRoomsAndDirection.West.slice(3).length}
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className="centreDiv stylesEffect"
-                onClick={() => getRooms("Centre")}
-              >
-                <h3>CENTRE</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection.Centre.length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection.Centre.slice(0, 3).map(
-                        (item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        }
-                      )}
-                      {data.selectedRoomsAndDirection.Centre.length > 3 &&
-                        `+
-                  ${data.selectedRoomsAndDirection.Centre.slice(3).length}
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className="eastDiv stylesEffect"
-                onClick={() => getRooms("East")}
-              >
-                <h3>EAST</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection.East.length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection.East.slice(0, 3).map(
-                        (item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        }
-                      )}
-                      {data.selectedRoomsAndDirection.East.length > 3 &&
-                        `+
-                  ${data.selectedRoomsAndDirection.East.slice(3).length}
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className="southWestDiv stylesEffect"
-                onClick={() => getRooms("South West")}
-              >
-                <h3>SOUTH-WEST</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection["South West"].length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection["South West"]
-                        .slice(0, 3)
-                        .map((item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        })}
-                      {data.selectedRoomsAndDirection["South West"].length >
-                        3 &&
-                        `+
-                  ${
-                    data.selectedRoomsAndDirection["South West"].slice(3).length
-                  }
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className="southDiv stylesEffect"
-                onClick={() => getRooms("South")}
-              >
-                <h3>SOUTH</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection.South.length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection.South.slice(0, 3).map(
-                        (item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        }
-                      )}
-                      {data.selectedRoomsAndDirection.South.length > 3 &&
-                        `+
-                  ${data.selectedRoomsAndDirection.South.slice(3).length}
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className="southEastDiv stylesEffect"
-                onClick={() => getRooms("South East")}
-              >
-                <h3>SOUTH-EAST</h3>
-                <div className="directionButtonRooms">
-                  {!data.selectedRoomsAndDirection["South East"].length ? (
-                    <span>
-                      No rooms
-                      <br /> selected
-                    </span>
-                  ) : (
-                    <>
-                      {data.selectedRoomsAndDirection["South East"]
-                        .slice(0, 3)
-                        .map((item) => {
-                          return (
-                            <p key={uuidv4()} className="directionButtonRoomsP">
-                              {item}
-                            </p>
-                          );
-                        })}
-                      {data.selectedRoomsAndDirection["South East"].length >
-                        3 &&
-                        `+
-                  ${
-                    data.selectedRoomsAndDirection["South East"].slice(3).length
-                  }
-                  more`}
-                    </>
-                  )}
-                </div>
-              </div>
-            </>
+                  </div>
+                );
+              })}
+            </div>
           </>
 
+          {/* checks if any room is selected or not, and accordingly shows buttons */}
           {roomsPresent() ? (
             <>
               <button

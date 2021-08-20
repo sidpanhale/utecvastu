@@ -2,6 +2,7 @@ import React from "react";
 import "./Modal.css";
 import CloseIcon from "@material-ui/icons/Close";
 
+//Vastu Tool Page (know more) modal
 const Modal = React.memo((props) => {
   return (
     <React.Fragment>

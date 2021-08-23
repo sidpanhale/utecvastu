@@ -9,7 +9,6 @@ import { clearData } from "../store/index";
 
 //Vastu Result Score page
 export default function VastuToolScore(props) {
-  
   const score = useSelector((state) => state.score.value2);
   const dispatch = useDispatch();
   const [isRoomSelected, setIsRoomSelected] = useState(false);
@@ -22,7 +21,10 @@ export default function VastuToolScore(props) {
   return (
     <div className="vaastuToolScore">
       {isRoomSelected ? (
-        <VastuToolScoreRoom roomTitle={roomTitle} closeVastuToolScoreRoom={closeVastuToolScoreRoom} />
+        <VastuToolScoreRoom
+          roomTitle={roomTitle}
+          closeVastuToolScoreRoom={closeVastuToolScoreRoom}
+        />
       ) : (
         <>
           <div className="vaastuDiv">
@@ -58,15 +60,21 @@ export default function VastuToolScore(props) {
                   {score &&
                     score.roomWiseVastuScore.map((item) => {
                       return (
+                        
                         <div
                           className="roomDetailsDiv"
                           key={uuidv4()}
-                          onClick={() => {setIsRoomSelected(true)
-                            setRoomTitle(item.room)}}
+                          onClick={() => {
+                            setIsRoomSelected(true);
+                            setRoomTitle(item.room);
+                          }}
                         >
-                          <span style={{ marginBottom: "0.1rem" }}>
-                            {item.room}
-                          </span>
+                          <div className="directionSmallText">
+                            <span style={{ marginBottom: "0.1rem" }}>
+                              {item.room}
+                            </span>
+                            <span style={{ fontSize : "12px", fontWeight: "normal", lineHeight:"14px" }}>({item.direction})</span>
+                          </div>
                           <div
                             className={`legendDiv ${
                               item.legend === "Favorable"

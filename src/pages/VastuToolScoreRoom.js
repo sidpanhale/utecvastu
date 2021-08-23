@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./VastuToolScoreRoom.css";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { v4 as uuidv4 } from "uuid";
+import DirectionModal from "../components/DirectionModal";
 
 export default function VastuToolScoreRoom({
   roomTitle,
   closeVastuToolScoreRoom,
 }) {
   const [roomDetail, setRoomDetail] = useState();
+  const [modalOpen, setModalOpen] = useState({
+    openOrClose: false,
+    passingText: "",
+  });
 
   const fetchRoomData = (bodyText) => {
     fetch(
@@ -38,67 +43,100 @@ export default function VastuToolScoreRoom({
     fetchRoomData(roomTitle);
   }, [roomTitle]);
 
+  const closeScoreRoomModal = () => {
+    setModalOpen({ ...modalOpen, openOrClose: false });
+  };
+
+  const openModal = (openModalText) => {
+    setModalOpen({
+      ...modalOpen,
+      openOrClose: true,
+      passingText: openModalText,
+    });
+  };
+
   return (
-    <div className="VastuToolScoreRoomDiv">
-      <div className="VastuToolScoreRoomDivHeading">
-        <ArrowBackIcon
-          className="BackButtonIcon"
-          onClick={() => closeVastuToolScoreRoom()}
+    <>
+      {modalOpen.openOrClose && (
+        <DirectionModal
+          directionForModal={modalOpen.passingText}
+          closeModal={closeScoreRoomModal}
         />
-        <span>{roomTitle}</span>
+      )}
+
+      <div className="VastuToolScoreRoomDiv">
+        <div className="VastuToolScoreRoomDivHeading">
+          <ArrowBackIcon
+            className="BackButtonIcon"
+            onClick={() => closeVastuToolScoreRoom()}
+          />
+          <span>{roomTitle}</span>
+        </div>
+
+        {roomDetail && (
+          <>
+            <div className="VastuToolScoreRoomTitle">
+              <span>FAVOURABLE DIRECTIONS</span>
+            </div>
+            <div className="directionFlex">
+              {roomDetail.favourableDirections.map((data) => {
+                return (
+                  <div
+                    key={uuidv4()}
+                    className="ScoreRoomDirection1"
+                    onClick={() => {
+                      openModal(data);
+                    }}
+                  >
+                    <span className="ScoreRoomText1">{data}</span>
+                  </div>
+                );
+              })}
+            </div>{" "}
+          </>
+        )}
+
+        {roomDetail && (
+          <>
+            <div className="VastuToolScoreRoomTitle">
+              <span>NEUTRAL DIRECTIONS</span>{" "}
+            </div>
+
+            <div className="directionFlex">
+              {roomDetail.neutralDirections.map((data) => {
+                return (
+                  <div key={uuidv4()} className="ScoreRoomDirection2"
+                  onClick={() => {
+                      openModal(data);
+                    }}>
+                    <span className="ScoreRoomText2">{data}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+
+        {roomDetail && (
+          <>
+            <div className="VastuToolScoreRoomTitle">
+              <span>UNFAVOURABLE DIRECTIONS</span>{" "}
+            </div>
+            <div className="directionFlex">
+              {roomDetail.unfavourableDirections.map((data) => {
+                return (
+                  <div key={uuidv4()} className="ScoreRoomDirection3"
+                  onClick={() => {
+                      openModal(data);
+                    }}>
+                    <span className="ScoreRoomText3">{data}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
-
-      {roomDetail && (
-        <>
-          <div className="VastuToolScoreRoomTitle">
-            <span>FAVOURABLE DIRECTIONS</span>
-          </div>
-          <div className="directionFlex">
-            {roomDetail.favourableDirections.map((data) => {
-              return (
-                <div key={uuidv4()} className="ScoreRoomDirection1">
-                  <span className="ScoreRoomText1">{data}</span>
-                </div>
-              );
-            })}
-          </div>{" "}
-        </>
-      )}
-
-      {roomDetail && (
-        <>
-          <div className="VastuToolScoreRoomTitle">
-            <span>NEUTRAL DIRECTIONS</span>{" "}
-          </div>
-
-          <div className="directionFlex">
-            {roomDetail.neutralDirections.map((data) => {
-              return (
-                <div key={uuidv4()} className="ScoreRoomDirection2">
-                  <span className="ScoreRoomText2">{data}</span>
-                </div>
-              );
-            })}
-          </div>
-        </>
-      )}
-
-      {roomDetail && (
-        <>
-          <div className="VastuToolScoreRoomTitle">
-            <span>UNFAVOURABLE DIRECTIONS</span>{" "}
-          </div>
-          <div className="directionFlex">
-            {roomDetail.unfavourableDirections.map((data) => {
-              return (
-                <div key={uuidv4()} className="ScoreRoomDirection3">
-                  <span className="ScoreRoomText3">{data}</span>
-                </div>
-              );
-            })}
-          </div>
-        </>
-      )}
-    </div>
+    </>
   );
 }

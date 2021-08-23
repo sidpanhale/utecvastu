@@ -55,32 +55,35 @@
 
   .ScoreRoomDirection1 {
     width: 99px;
-    height: 28px;
+    height: 35px;
     border-radius: 8px;
     background: #f1fbf2;
     border-radius: 8px;
     margin: 8px 0px 8px 25px;
     text-align: center;
+    cursor: pointer;
   }
 
   .ScoreRoomDirection2 {
     width: 99px;
-    height: 28px;
+    height: 35px;
     border-radius: 8px;
     background: #fffae6;
     border-radius: 8px;
     margin: 8px 0px 8px 25px;
     text-align: center;
+    cursor: pointer;
   }
   
   .ScoreRoomDirection3 {
     width: 99px;
-    height: 28px;
+    height: 35px;
     border-radius: 8px;
     background: #fae8ed;
     border-radius: 8px;
     margin: 8px 0px 8px 25px;
     text-align: center;
+    cursor: pointer;
   }
 
   .ScoreRoomText1 {

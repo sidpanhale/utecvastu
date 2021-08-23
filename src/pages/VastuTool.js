@@ -78,18 +78,6 @@ export default function VastuTool() {
     }
   };
 
-  const directionArray = [
-    "North West",
-    "North",
-    "North East",
-    "West",
-    "Centre",
-    "East",
-    "South West",
-    "South",
-    "South East",
-  ];
-
   return (
     <>
       {modal && <Modal onClose={onClose} />}
@@ -115,7 +103,7 @@ export default function VastuTool() {
 
             {/* Mapping all the direction Blocks */}
             <div className="vastuToolRightDiv">
-              {directionArray.map((eachDirection) => {
+              {Object.keys(data.selectedRoomsAndDirection).map((eachDirection) => {
                 return (
                   <div
                     key={uuidv4()}
@@ -173,7 +161,8 @@ export default function VastuTool() {
               </button>
               <button
                 className="vastuToolButtonRight vastuToolButton"
-                onClick={() => dispatch(clearData())}
+                onClick={() => {dispatch(clearData());
+                  setDirectionRooms()}}
               >
                 <h3 className="buttonText">Reset all</h3>
               </button>
@@ -182,9 +171,6 @@ export default function VastuTool() {
             <button
               disabled
               className="vastuToolButton vastuToolButtonDisabled"
-              onClick={() => {
-                submitData(data);
-              }}
             >
               <h3 className="buttonText">Calculate Score</h3>
             </button>

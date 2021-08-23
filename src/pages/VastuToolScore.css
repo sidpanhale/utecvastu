@@ -236,3 +236,7 @@ h3 {
   background: #FAE8ED;
 }
 
+.directionSmallText{
+  display: flex;
+  flex-direction: column;
+}
